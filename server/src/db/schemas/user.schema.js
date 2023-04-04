@@ -7,16 +7,16 @@ const userSchema = mongoose.Schema({
     },
     name: {
         type: String,
-        require: true
+        required: true
     },
     location: {
         long: {
             type: Number,
-            require: true
+            required: true
         },
         lat: {
             type: Number,
-            require: true
+            required: true
         }
     },
     orders:[
@@ -40,22 +40,15 @@ const userSchema = mongoose.Schema({
     ],
     refers:[
         {
-            referedTO:{
-                type:mongoose.Types.ObjectId,
-                ref:"User"
-            }
+            type:mongoose.Types.ObjectId,
+            ref:"User"
         }
     ],
-    searches:[
-        {
-            term:String
-        }
-    ],
+    searches:[],
     token:{
         type:String,
         required:true
     }
-
 })
 
 module.exports = userSchema
